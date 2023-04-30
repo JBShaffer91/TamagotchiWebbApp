@@ -18,6 +18,20 @@
           <td>@tamagotchi.Food</td>
           <td>@tamagotchi.Attention</td>
           <td>@tamagotchi.Rest</td>
+          <td>
+            <form asp-action="Feed" method="post" style="display: inline;">
+            <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
+            <button type="submit" class="btn btn-primary">Feed</button>
+            </form>
+            <form asp-action="Play" method="post" style="display: inline;">
+            <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
+            <button type="submit" class="btn btn-primary">Play</button>
+            </form>
+            <form asp-action="Sleep" method="post" style="display: inline;">
+            <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
+            <button type="submit" class="btn btn-primary">Sleep</button>
+            </form>
+          </td>
         </tr>
       }
   </table>
