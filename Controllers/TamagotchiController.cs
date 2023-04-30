@@ -43,4 +43,25 @@ public class TamagotchiController : Controller
     _tamagotchis[id].Sleep();
     return RedirectToAction(nameof(Index));
   }
+
+  [HttpPost]
+  public IActionResult TimePasses()
+  {
+    bool anyDead = false;
+
+    foreach (var tamagotchi in _tamagotchis)
+    {
+      if (tamagotchi.TimePasses())
+      {
+        anyDead = true;
+      }
+    }
+
+    if (anyDead)
+    {
+      ViewBag.Message = "One or more of your tamagotchis have died!";
+    }
+
+    return RedirectToAction(nameof(Index));
+  }
 }

@@ -25,5 +25,14 @@ namespace TamagotchiWebbApp.Models
     {
       Rest = Math.Min(Rest + 10, 100);
     }
+
+    public bool TimePasses()
+    {
+      Food = Math.Max(Food - 10, 0);
+      Attention = Math.Max(Attention - 10, 0);
+      Rest = Math.Max(Rest - 10, 0);
+
+      return Food == 0 || Attention == 0 || Rest == 0;
+    }
   }
 }

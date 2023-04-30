@@ -31,6 +31,13 @@
             <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
             <button type="submit" class="btn btn-primary">Sleep</button>
             </form>
+            <form asp-action="TimePasses" method="post">
+              <button type="submit" class="btn btn-warning">Time Passes</button>
+              @if (!string.IsNullOrEmpty(ViewBag.Message))
+              {
+                <div class="alert alert-info">@ViewBag.Message</div>
+              }
+            </form>
           </td>
         </tr>
       }
