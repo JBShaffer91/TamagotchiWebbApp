@@ -1,0 +1,25 @@
+@model List<TamagotchiWebbApp.Models.Tamagotchi>
+  <h1>Tamagotchis</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Food</th>
+        <th>Attention</th>
+        <th>Rest</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var tamagotchi in Model)
+      {
+        <tr>
+          <td>@tamagotchi.Name</td>
+          <td>@tamagotchi.Food</td>
+          <td>@tamagotchi.Attention</td>
+          <td>@tamagotchi.Rest</td>
+        </tr>
+      }
+  </table>
+
+  <a asp-action="Create">Create new Tamagotchi</a>
