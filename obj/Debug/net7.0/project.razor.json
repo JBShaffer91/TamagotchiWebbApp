@@ -18645,6 +18645,11 @@
   "RootNamespace": "TamagotchiWebbApp",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\justi\\Desktop\\TamagotchiWebbApp\\Views\\Tamagotchi\\Index.cshtml",
+      "TargetPath": "Views\\Tamagotchi\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\justi\\Desktop\\TamagotchiWebbApp\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
@@ -18672,6 +18677,11 @@
     {
       "FilePath": "c:\\Users\\justi\\Desktop\\TamagotchiWebbApp\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\justi\\Desktop\\TamagotchiWebbApp\\Views\\Tamagotchi\\New.cshtml",
+      "TargetPath": "Views\\Tamagotchi\\New.cshtml",
       "FileKind": "mvc"
     },
     {
