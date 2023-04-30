@@ -2,51 +2,53 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using TamagotchiWebbApp.Models;
 
-public class TamagotchiController : Controller
+namespace TamagotchiWebbApp.Controllers
 {
-  private static List<Tamagotchi> _tamagotchis = new List<Tamagotchi>();
+  public class TamagotchiController : Controller
+    {
+      private static List<Tamagotchi> _tamagotchis = new List<Tamagotchi>();
 
-  public IActionResult Index()
-  {
+    public IActionResult Index()
+    {
       return View(_tamagotchis);
-  }
+    }
 
-  public IActionResult New()
-  {
+    public IActionResult New()
+    {
       return View();
-  }
+    }
 
-  [HttpPost]
-  public IActionResult Create(Tamagotchi tamagotchi)
-  {
-    _tamagotchis.Add(tamagotchi);
-    return RedirectToAction(nameof(Index));
-  }
+    [HttpPost]
+    public IActionResult Create(Tamagotchi tamagotchi)
+    {
+      _tamagotchis.Add(tamagotchi);
+      return RedirectToAction(nameof(Index));
+    }
 
-  [HttpPost]
-  public IActionResult Feed(int id)
-  {
-    _tamagotchis[id].Feed();
-    return RedirectToAction(nameof(Index));
-  }
+    [HttpPost]
+    public IActionResult Feed(int id)
+    {
+      _tamagotchis[id].Feed();
+      return RedirectToAction(nameof(Index));
+    }
 
-  [HttpPost]
-  public IActionResult Play(int id)
-  {
-    _tamagotchis[id].Play();
-    return RedirectToAction(nameof(Index));
-  }
+    [HttpPost]
+    public IActionResult Play(int id)
+    {
+      _tamagotchis[id].Play();
+      return RedirectToAction(nameof(Index));
+    }
 
-  [HttpPost]
-  public IActionResult Sleep(int id)
-  {
-    _tamagotchis[id].Sleep();
-    return RedirectToAction(nameof(Index));
-  }
+    [HttpPost]
+    public IActionResult Sleep(int id)
+    {
+      _tamagotchis[id].Sleep();
+      return RedirectToAction(nameof(Index));
+    }
 
-  [HttpPost]
-  public IActionResult TimePasses()
-  {
+    [HttpPost]
+    public IActionResult TimePasses()
+    {
     bool anyDead = false;
 
     foreach (var tamagotchi in _tamagotchis)
@@ -63,5 +65,6 @@ public class TamagotchiController : Controller
     }
 
     return RedirectToAction(nameof(Index));
+    }
   }
 }

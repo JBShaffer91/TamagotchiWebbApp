@@ -1,46 +1,49 @@
 @model List<TamagotchiWebbApp.Models.Tamagotchi>
-  <h1>Tamagotchis</h1>
+<h1>Tamagotchis</h1>
 
-  <table class="table">
-    <thead>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Food</th>
+      <th>Attention</th>
+      <th>Rest</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var tamagotchi in Model)
+    {
       <tr>
-        <th>Name</th>
-        <th>Food</th>
-        <th>Attention</th>
-        <th>Rest</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach (var tamagotchi in Model)
-      {
-        <tr>
-          <td>@tamagotchi.Name</td>
-          <td>@tamagotchi.Food</td>
-          <td>@tamagotchi.Attention</td>
-          <td>@tamagotchi.Rest</td>
-          <td>
-            <form asp-action="Feed" method="post" style="display: inline;">
+        <td>@tamagotchi.Name</td>
+        <td>@tamagotchi.Food</td>
+        <td>@tamagotchi.Attention</td>
+        <td>@tamagotchi.Rest</td>
+        <td>
+          <form asp-action="Feed" method="post" style="display: inline;">
             <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
             <button type="submit" class="btn btn-primary">Feed</button>
-            </form>
-            <form asp-action="Play" method="post" style="display: inline;">
+          </form>
+          <form asp-action="Play" method="post" style="display: inline;">
             <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
             <button type="submit" class="btn btn-primary">Play</button>
-            </form>
-            <form asp-action="Sleep" method="post" style="display: inline;">
+          </form>
+          <form asp-action="Sleep" method="post" style="display: inline;">
             <input type="hidden" name="id" value="@Model.IndexOf(tamagotchi)" />
             <button type="submit" class="btn btn-primary">Sleep</button>
-            </form>
-            <form asp-action="TimePasses" method="post">
-              <button type="submit" class="btn btn-warning">Time Passes</button>
-              @if (!string.IsNullOrEmpty(ViewBag.Message))
-              {
-                <div class="alert alert-info">@ViewBag.Message</div>
-              }
-            </form>
-          </td>
-        </tr>
-      }
-  </table>
+          </form>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
 
-  <a asp-action="Create">Create new Tamagotchi</a>
+<form asp-action="TimePasses" method="post">
+  <button type="submit" class="btn btn-warning">Time Passes</button>
+</form>
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+  <div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<a asp-action="New">Create new Tamagotchi</a>
